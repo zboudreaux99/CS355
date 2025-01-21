@@ -38,7 +38,7 @@ public class TestParser {
         String inputStr = ",";
         Reader rdr = new StringReader(inputStr);
         CSVParser parser = new CSVParser(rdr);
-
+        
         String v = parser.field();
         System.out.println(v);
         assertThat(v, is(""));
