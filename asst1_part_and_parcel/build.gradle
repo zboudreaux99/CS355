@@ -26,6 +26,9 @@ test {
             mergeReruns = true // defaults to false
         }
     }
+    testLogging {
+        showStandardStreams = true
+    }
 }
 
 
