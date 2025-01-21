@@ -32,8 +32,8 @@ public class CSVParser {
      */
     public String field() {
         String token = scanner.peek().toString();
+        System.out.println(token);
         if (token == null || token.equals(",") || token.equals("\n")) {
-            System.out.println("not parsable");
             return null;
         }
 
