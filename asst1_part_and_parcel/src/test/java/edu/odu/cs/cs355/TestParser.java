@@ -29,6 +29,7 @@ public class TestParser {
         CSVParser parser = new CSVParser(rdr);
 
         String v = parser.field();
+        System.out.println(v);
         assertThat(v, is("abc d"));
     }
 
@@ -42,7 +43,6 @@ public class TestParser {
         assertThat(v, is(""));
     }
 
-
     @Test
     public void testNonEmpty() {
         String inputStr = "abc, def, ghi\n";
@@ -50,14 +50,14 @@ public class TestParser {
         CSVParser parser = new CSVParser(rdr);
 
         List<String> v = parser.nonEmpty();
-        String[] expected = {"abc", "def", "ghi"};
+        String[] expected = { "abc", "def", "ghi" };
 
         assertThat(v, is(Arrays.asList(expected)));
     }
 
     @Test
     public void testNonEmpty2() {
-        String[] expected2 = {"abc", "def", "", "ghi"};
+        String[] expected2 = { "abc", "def", "", "ghi" };
         String inputStr = "abc, def,, ghi\n";
         Reader rdr = new StringReader(inputStr);
         CSVParser parser = new CSVParser(rdr);
@@ -67,7 +67,7 @@ public class TestParser {
 
     @Test
     public void testNonEmpty3() {
-        String[] expected3 = {"abc", "def", "ghi",""};
+        String[] expected3 = { "abc", "def", "ghi", "" };
         String inputStr = "abc, def, ghi,\n";
         Reader rdr = new StringReader(inputStr);
         CSVParser parser = new CSVParser(rdr);
@@ -77,7 +77,7 @@ public class TestParser {
 
     @Test
     public void testNonEmpty4() {
-        String[] expected = {"abc", "def", "ghi"};
+        String[] expected = { "abc", "def", "ghi" };
         String inputStr = "abc, \"def\", ghi";
         Reader rdr = new StringReader(inputStr);
         CSVParser parser = new CSVParser(rdr);
@@ -92,7 +92,7 @@ public class TestParser {
         CSVParser parser = new CSVParser(rdr);
 
         List<String> v = parser.line();
-        String[] expected = {"abc", "def", "ghi"};
+        String[] expected = { "abc", "def", "ghi" };
 
         assertThat(v, is(Arrays.asList(expected)));
     }
@@ -109,7 +109,7 @@ public class TestParser {
 
     @Test
     public void testLine3() {
-        String[] expected2 = {"abc", "def", "", "ghi"};
+        String[] expected2 = { "abc", "def", "", "ghi" };
         String inputStr = "abc, def,, ghi\n";
         Reader rdr = new StringReader(inputStr);
         CSVParser parser = new CSVParser(rdr);
@@ -119,7 +119,7 @@ public class TestParser {
 
     @Test
     public void testLine4() {
-        String[] expected3 = {"abc", "def", "ghi",""};
+        String[] expected3 = { "abc", "def", "ghi", "" };
         String inputStr = "abc, def, ghi,\n";
         Reader rdr = new StringReader(inputStr);
         CSVParser parser = new CSVParser(rdr);
@@ -134,8 +134,8 @@ public class TestParser {
         CSVParser parser = new CSVParser(rdr);
 
         List<List<String>> v = parser.csvFile();
-        String[] expected1 = {"abc", "def", "ghi"};
-        String[] expected2 = {"j" + '"' + "kl", "mn,o"};
+        String[] expected1 = { "abc", "def", "ghi" };
+        String[] expected2 = { "j" + '"' + "kl", "mn,o" };
 
         ArrayList<List<String>> expected = new ArrayList<>();
         expected.add(Arrays.asList(expected1));
