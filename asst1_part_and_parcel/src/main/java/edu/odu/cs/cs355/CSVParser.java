@@ -31,11 +31,21 @@ public class CSVParser {
      * @return a field value or null if a <Field> could not be parsed.
      */
     public String field() {
-        Token token = scanner.peek();
-        if (token == null || token.equals(Token.Kinds.Comma) || token.equals(Token.Kinds.EndOfLine)) {
-            return null;
-        }
+        // Token token = scanner.peek();
+        // if (token == null || token.equals(Token.Kinds.Comma) || token.equals(Token.Kinds.EndOfLine)) {
+        //     return null;
+        // }
 
+        // return scanner.next().toString();
+
+        Token token = scanner.peek();
+    
+        // Return an empty string for empty fields
+        if (token == null || token.equals(Token.Kinds.Comma) || token.equals(Token.Kinds.EndOfLine)) {
+            return ""; // Handle empty fields
+        }
+        
+        // Consume the token and return its value
         return scanner.next().toString();
     }
 
