@@ -40,6 +40,7 @@ public class TestParser {
         CSVParser parser = new CSVParser(rdr);
 
         String v = parser.field();
+        System.out.println(v);
         assertThat(v, is(""));
     }
 
