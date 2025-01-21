@@ -47,7 +47,26 @@ public class CSVParser {
      */
     public List<String> line() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'line'");
+        // throw new UnsupportedOperationException("Unimplemented method 'line'");
+
+        // NOT COMPLETE
+        List<String> values = new ArrayList<>();
+
+        String fieldValue = field();
+        if (fieldValue == null && !"\n".equals(scanner.peek().toString())) {
+            return null; // Invalid line
+        }
+
+        if (fieldValue != null) {
+            values.add(fieldValue);
+        }
+
+        List<String> nonEmptyValues = nonEmpty();
+        if (nonEmptyValues != null) {
+            values.addAll(nonEmptyValues);
+        }
+
+        return values;
     }
 
     /**
@@ -58,7 +77,22 @@ public class CSVParser {
      */
     public List<String> nonEmpty() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nonEmpty'");
+        // throw new UnsupportedOperationException("Unimplemented method 'nonEmpty'");
+
+        // NOT COMPLETE
+        if (scanner.peek() == null || !scanner.peek().toString().equals(",")) {
+            return null; // Empty <NonEmpty>
+        }
+
+        // Consume the comma
+        scanner.next();
+
+        List<String> values = line();
+        if (values == null) {
+            return null; // Invalid line after comma
+        }
+
+        return values;
     }
 
     /**
@@ -70,7 +104,29 @@ public class CSVParser {
      */
     public List<List<String>> csvFile() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'csvFile'");
+        // throw new UnsupportedOperationException("Unimplemented method 'csvFile'");
+
+        // NOT COMPLETE
+        List<List<String>> rows = new ArrayList<>();
+        while (scanner.peek() != null) {
+            if ("\n".equals(scanner.peek().toString())) {
+                scanner.next(); // Consume end of line
+                continue;
+            }
+
+            List<String> row = line();
+            if (row == null) {
+                return null; // Invalid CSV format
+            }
+
+            rows.add(row);
+
+            if ("\n".equals(scanner.peek().toString())) {
+                scanner.next(); // Consume end of line
+            }
+        }
+
+        return rows;
     }
 
 }
