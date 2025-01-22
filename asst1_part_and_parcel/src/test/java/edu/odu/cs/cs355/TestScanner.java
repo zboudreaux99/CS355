@@ -18,8 +18,6 @@ import static org.hamcrest.Matchers.*;
  *
  */
 public class TestScanner {
-
-    /* Uncomment if you would like to run the Scanner tests 
     @Test
     public void testBasicScan() {
         String inputStr = "abc, 123, def";
@@ -98,7 +96,4 @@ public class TestScanner {
         t = scanner.next();
         assertThat(t.kind, is(Token.Kinds.EndOfLine));
     }
-
-*/
-
 }

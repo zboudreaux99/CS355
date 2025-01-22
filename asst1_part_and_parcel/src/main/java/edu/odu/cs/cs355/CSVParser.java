@@ -4,8 +4,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.odu.cs.cs355.Token.Kinds;
-
 public class CSVParser {
     /**
      * Parses inputs for the following grammar:
@@ -43,7 +41,6 @@ public class CSVParser {
             return "";
         }
 
-        // Consume the token and return its value
         return scanner.next().toString();
     }
 
@@ -58,7 +55,7 @@ public class CSVParser {
 
         String fieldValue = field();
         if (fieldValue == null && !"\n".equals(scanner.peek().toString())) {
-            return null; // Invalid line
+            return null;
         }
 
         if (fieldValue != null) {
