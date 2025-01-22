@@ -29,7 +29,7 @@ public class TestParser {
         CSVParser parser = new CSVParser(rdr);
 
         String v = parser.field();
-        System.out.println(v);
+        System.out.println(v.toString());
         assertThat(v, is("abc d"));
     }
 

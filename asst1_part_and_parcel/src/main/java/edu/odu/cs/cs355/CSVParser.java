@@ -54,10 +54,6 @@ public class CSVParser {
      *         parsed as a <Line>
      */
     public List<String> line() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'line'");
-
-        // NOT COMPLETE
         List<String> values = new ArrayList<>();
 
         String fieldValue = field();
@@ -75,29 +71,6 @@ public class CSVParser {
         }
 
         return values;
-
-        // List<String> values = new ArrayList<>();
-        // Token token = scanner.peek();
-
-        // // Handle empty line case
-        // if (token != null && token.equals(Token.Kinds.EndOfLine)) {
-        // return values;
-        // }
-
-        // // Parse first field
-        // String fieldValue = field();
-        // if (fieldValue == null) {
-        // return null;
-        // }
-        // values.add(fieldValue);
-
-        // // Parse remaining fields
-        // List<String> remaining = nonEmpty();
-        // if (remaining != null) {
-        // values.addAll(remaining);
-        // }
-
-        // return values;
     }
 
     /**
@@ -107,41 +80,18 @@ public class CSVParser {
      *         parsed as a <NonEmpty>
      */
     public List<String> nonEmpty() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'nonEmpty'");
-
-        // NOT COMPLETE
         if (scanner.peek() == null || !scanner.peek().toString().equals(",")) {
-            return null; // Empty <NonEmpty>
+            return null;
         }
 
-        // Consume the comma
         scanner.next();
 
         List<String> values = line();
         if (values == null) {
-            return null; // Invalid line after comma
+            return null;
         }
 
         return values;
-
-        // Token token = scanner.peek();
-
-        // // Empty case
-        // if (token == null || !token.equals(Token.Kinds.Comma)) {
-        // return new ArrayList<>();
-        // }
-
-        // // Consume comma
-        // scanner.next();
-
-        // // Parse the rest of the line
-        // List<String> lineValues = line();
-        // if (lineValues == null) {
-        // return null;
-        // }
-
-        // return lineValues;
     }
 
     /**
@@ -152,10 +102,6 @@ public class CSVParser {
      *         cannot be parsed as a <CSVFile>
      */
     public List<List<String>> csvFile() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'csvFile'");
-
-        // NOT COMPLETE
         List<List<String>> rows = new ArrayList<>();
         while (scanner.peek() != null) {
             if ("\n".equals(scanner.peek().toString())) {
@@ -165,48 +111,17 @@ public class CSVParser {
 
             List<String> row = line();
             if (row == null) {
-                return null; // Invalid CSV format
+                return null;
             }
 
             rows.add(row);
 
             if ("\n".equals(scanner.peek().toString())) {
-                scanner.next(); // Consume end of line
+                scanner.next();
             }
         }
 
         return rows;
-
-        // List<List<String>> rows = new ArrayList<>();
-        // Token token;
-
-        // while ((token = scanner.peek()) != null) {
-        // if (token.equals(Token.Kinds.EndOfInput)) {
-        // break;
-        // }
-
-        // // Parse line
-        // List<String> row = line();
-        // if (row == null) {
-        // return null;
-        // }
-        // rows.add(row);
-
-        // // Expect end of line or end of input
-        // token = scanner.peek();
-        // if (token == null ||
-        // (!token.equals(Token.Kinds.EndOfLine) &&
-        // !token.equals(Token.Kinds.EndOfInput))) {
-        // return null;
-        // }
-
-        // // Consume end of line if present
-        // if (token.equals(Token.Kinds.EndOfLine)) {
-        // scanner.next();
-        // }
-        // }
-
-        // return rows;
     }
 
 }
