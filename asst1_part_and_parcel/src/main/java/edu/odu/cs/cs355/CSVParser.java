@@ -33,11 +33,7 @@ public class CSVParser {
     public String field() {
         Token token = scanner.peek();
 
-        if (token == null) {
-            return "";
-        } else if (token.kind.equals(Token.Kinds.Comma)) {
-            return "";
-        } else if (token.kind.equals(Token.Kinds.EndOfLine)) {
+        if (token == null || token.kind.equals(Token.Kinds.Comma) || token.kind.equals(Token.Kinds.EndOfLine)) {
             return "";
         }
 
