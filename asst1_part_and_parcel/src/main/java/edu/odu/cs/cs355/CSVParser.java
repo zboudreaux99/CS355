@@ -4,6 +4,8 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.odu.cs.cs355.Token.Kinds;
+
 public class CSVParser {
     /**
      * Parses inputs for the following grammar:
@@ -32,13 +34,14 @@ public class CSVParser {
      */
     public String field() {
         Token token = scanner.peek();
+
         if (token == null) {
             System.out.println("field: null");
             return "";
-        } else if (token.equals(Token.Kinds.Comma)) {
+        } else if (token.kind.equals(Token.Kinds.Comma)) {
             System.out.println("field: comma");
             return "";
-        } else if (token.equals(Token.Kinds.EndOfLine)) {
+        } else if (token.kind.equals(Token.Kinds.EndOfLine)) {
             System.out.println("field: end of line");
             return "";
         }
