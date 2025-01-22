@@ -36,13 +36,10 @@ public class CSVParser {
         Token token = scanner.peek();
 
         if (token == null) {
-            System.out.println("field: null");
             return "";
         } else if (token.kind.equals(Token.Kinds.Comma)) {
-            System.out.println("field: comma");
             return "";
         } else if (token.kind.equals(Token.Kinds.EndOfLine)) {
-            System.out.println("field: end of line");
             return "";
         }
 
