@@ -20,13 +20,18 @@ public class Main {
 
         List<String> row1 = new ArrayList<>();
         row1.add("abc");
+        System.out.println("abc");
         row1.add("def");
+        System.out.println("def");
         row1.add("ghi");
+        System.out.println("ghi");
         expected.add(row1);
 
         List<String> row2 = new ArrayList<>();
         row2.add("j\"kl");
+        System.out.println("jkl");
         row2.add("mn,o");
+        System.out.println("mno");
         expected.add(row2);
 
         // Print the results
