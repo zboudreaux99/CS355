@@ -15,6 +15,8 @@ public class CSVParser {
      */
 
     private CSVScanner scanner;
+    private static final String COMMA = ",";
+    private static final String NEWLINE = "\n";
 
     /**
      * Create a new scanner for CSV content.
@@ -50,19 +52,18 @@ public class CSVParser {
      */
     public List<String> line() {
         List<String> values = new ArrayList<>();
+        Token peek = scanner.peek();
+        
+        if (peek == null || isEndOfLine(peek)) {
+            return values;
+        }
 
         String fieldValue = field();
-        if (fieldValue == null && !"\n".equals(scanner.peek().toString())) {
-            return null;
-        }
+        values.add(fieldValue);
 
-        if (fieldValue != null) {
-            values.add(fieldValue);
-        }
-
-        List<String> nonEmptyValues = nonEmpty();
-        if (nonEmptyValues != null) {
-            values.addAll(nonEmptyValues);
+        List<String> remaining = nonEmpty();
+        if (remaining != null) {
+            values.addAll(remaining);
         }
 
         return values;
@@ -75,18 +76,13 @@ public class CSVParser {
      *         parsed as a <NonEmpty>
      */
     public List<String> nonEmpty() {
-        if (scanner.peek() == null || !scanner.peek().toString().equals(",")) {
+        Token peek = scanner.peek();
+        if (peek == null || !COMMA.equals(peek.toString())) {
             return null;
         }
 
-        scanner.next();
-
-        List<String> values = line();
-        if (values == null) {
-            return null;
-        }
-
-        return values;
+        scanner.next(); // Consume comma
+        return line();
     }
 
     /**
@@ -98,25 +94,33 @@ public class CSVParser {
      */
     public List<List<String>> csvFile() {
         List<List<String>> rows = new ArrayList<>();
-        while (scanner.peek() != null) {
-            if ("\n".equals(scanner.peek().toString())) {
-                scanner.next(); // Consume end of line
+        Token peek;
+
+        while ((peek = scanner.peek()) != null) {
+            if (isEndOfLine(peek)) {
+                scanner.next(); // Consume newline
                 continue;
             }
 
             List<String> row = line();
-            if (row == null) {
-                return null;
+            if (!row.isEmpty()) {
+                rows.add(row);
             }
 
-            rows.add(row);
-
-            if ("\n".equals(scanner.peek().toString())) {
-                scanner.next();
-            }
+            consumeNewlineIfPresent();
         }
 
         return rows;
     }
 
+    private boolean isEndOfLine(Token token) {
+        return NEWLINE.equals(token.toString());
+    }
+
+    private void consumeNewlineIfPresent() {
+        Token peek = scanner.peek();
+        if (peek != null && isEndOfLine(peek)) {
+            scanner.next();
+        }
+    }
 }
