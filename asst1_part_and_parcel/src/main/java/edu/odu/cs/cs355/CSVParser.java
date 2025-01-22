@@ -31,20 +31,18 @@ public class CSVParser {
      * @return a field value or null if a <Field> could not be parsed.
      */
     public String field() {
-        // Token token = scanner.peek();
-        // if (token == null || token.equals(Token.Kinds.Comma) || token.equals(Token.Kinds.EndOfLine)) {
-        //     return null;
-        // }
-
-        // return scanner.next().toString();
-
         Token token = scanner.peek();
-    
-        // Return an empty string for empty fields
-        if (token == null || token.equals(Token.Kinds.Comma) || token.equals(Token.Kinds.EndOfLine)) {
-            return ""; // Handle empty fields
+        if (token == null) {
+            System.out.println("field: null");
+            return "";
+        } else if (token.equals(Token.Kinds.Comma)) {
+            System.out.println("field: comma");
+            return "";
+        } else if (token.equals(Token.Kinds.EndOfLine)) {
+            System.out.println("field: end of line");
+            return "";
         }
-        
+
         // Consume the token and return its value
         return scanner.next().toString();
     }
@@ -80,23 +78,23 @@ public class CSVParser {
 
         // List<String> values = new ArrayList<>();
         // Token token = scanner.peek();
-        
+
         // // Handle empty line case
         // if (token != null && token.equals(Token.Kinds.EndOfLine)) {
-        //     return values;
+        // return values;
         // }
 
         // // Parse first field
         // String fieldValue = field();
         // if (fieldValue == null) {
-        //     return null;
+        // return null;
         // }
         // values.add(fieldValue);
 
         // // Parse remaining fields
         // List<String> remaining = nonEmpty();
         // if (remaining != null) {
-        //     values.addAll(remaining);
+        // values.addAll(remaining);
         // }
 
         // return values;
@@ -128,10 +126,10 @@ public class CSVParser {
         return values;
 
         // Token token = scanner.peek();
-        
+
         // // Empty case
         // if (token == null || !token.equals(Token.Kinds.Comma)) {
-        //     return new ArrayList<>();
+        // return new ArrayList<>();
         // }
 
         // // Consume comma
@@ -140,7 +138,7 @@ public class CSVParser {
         // // Parse the rest of the line
         // List<String> lineValues = line();
         // if (lineValues == null) {
-        //     return null;
+        // return null;
         // }
 
         // return lineValues;
@@ -183,29 +181,29 @@ public class CSVParser {
         // Token token;
 
         // while ((token = scanner.peek()) != null) {
-        //     if (token.equals(Token.Kinds.EndOfInput)) {
-        //         break;
-        //     }
+        // if (token.equals(Token.Kinds.EndOfInput)) {
+        // break;
+        // }
 
-        //     // Parse line
-        //     List<String> row = line();
-        //     if (row == null) {
-        //         return null;
-        //     }
-        //     rows.add(row);
+        // // Parse line
+        // List<String> row = line();
+        // if (row == null) {
+        // return null;
+        // }
+        // rows.add(row);
 
-        //     // Expect end of line or end of input
-        //     token = scanner.peek();
-        //     if (token == null || 
-        //         (!token.equals(Token.Kinds.EndOfLine) && 
-        //          !token.equals(Token.Kinds.EndOfInput))) {
-        //         return null;
-        //     }
+        // // Expect end of line or end of input
+        // token = scanner.peek();
+        // if (token == null ||
+        // (!token.equals(Token.Kinds.EndOfLine) &&
+        // !token.equals(Token.Kinds.EndOfInput))) {
+        // return null;
+        // }
 
-        //     // Consume end of line if present
-        //     if (token.equals(Token.Kinds.EndOfLine)) {
-        //         scanner.next();
-        //     }
+        // // Consume end of line if present
+        // if (token.equals(Token.Kinds.EndOfLine)) {
+        // scanner.next();
+        // }
         // }
 
         // return rows;
