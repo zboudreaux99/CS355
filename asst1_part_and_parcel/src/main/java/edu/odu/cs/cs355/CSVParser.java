@@ -41,7 +41,9 @@ public class CSVParser {
             return "";
         }
 
-        return scanner.next().toString();
+        String output = scanner.next().toString();
+        String[] parts = output.split(":");
+        return parts[1];
     }
 
     /**
