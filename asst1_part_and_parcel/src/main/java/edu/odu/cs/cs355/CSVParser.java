@@ -15,8 +15,6 @@ public class CSVParser {
      */
 
     private CSVScanner scanner;
-    private static final String COMMA = ",";
-    private static final String NEWLINE = "\n";
 
     /**
      * Create a new scanner for CSV content.
@@ -35,7 +33,9 @@ public class CSVParser {
     public String field() {
         Token token = scanner.peek();
 
-        if (token == null || token.kind.equals(Token.Kinds.Comma) || token.kind.equals(Token.Kinds.EndOfLine)) {
+        if (token == null || token.kind.equals(Token.Kinds.Comma) || token.kind.equals(Token.Kinds.EndOfLine)
+                || token.kind.equals(Token.Kinds.EndOfInput)) {
+            scanner.next();
             return "";
         }
 
@@ -49,24 +49,49 @@ public class CSVParser {
      * 
      * @return a list of value strings if successful or null if the input cannot be
      *         parsed as a <Line>
-     */
+    */
     public List<String> line() {
-        List<String> values = new ArrayList<>();
-        Token peek = scanner.peek();
-        
-        if (peek == null || isEndOfLine(peek)) {
-            return values;
+        List<String> lineValues = new ArrayList<>();
+        String firstField = field(); // Parse the first field
+    
+        // If the first field is empty and we're at the end of the line or input, return an empty list
+        if (firstField.isEmpty()) {
+            Token token = scanner.peek();
+            if (token != null && (token.kind.equals(Token.Kinds.EndOfLine) || token.kind.equals(Token.Kinds.EndOfInput))) {
+                return lineValues;
+            }
         }
-
-        String fieldValue = field();
-        values.add(fieldValue);
-
-        List<String> remaining = nonEmpty();
-        if (remaining != null) {
-            values.addAll(remaining);
+    
+        // Add the first field to the list (even if it's empty)
+        lineValues.add(firstField);
+    
+        // Parse the rest of the fields
+        while (true) {
+            Token token = scanner.peek();
+            if (token == null || token.kind.equals(Token.Kinds.EndOfLine) || token.kind.equals(Token.Kinds.EndOfInput)) {
+                break;
+            }
+            
+            if (token.kind.equals(Token.Kinds.Comma)) {
+                scanner.next(); // Consume the comma
+                
+                // Check for consecutive commas
+                if (scanner.peek() != null && scanner.peek().kind.equals(Token.Kinds.Comma)) {
+                    lineValues.add(""); // Add an empty field for consecutive commas
+                } else {
+                    lineValues.add(field()); // Add the next field (even if it's empty)
+                }
+            } else {
+                break;
+            }
         }
-
-        return values;
+    
+        // Consume the EndOfLine token if present
+        if (scanner.peek() != null && scanner.peek().kind.equals(Token.Kinds.EndOfLine)) {
+            scanner.next();
+        }
+    
+        return lineValues;
     }
 
     /**
@@ -76,13 +101,38 @@ public class CSVParser {
      *         parsed as a <NonEmpty>
      */
     public List<String> nonEmpty() {
-        Token peek = scanner.peek();
-        if (peek == null || !COMMA.equals(peek.toString())) {
-            return null;
+        List<String> nonEmptyValues = new ArrayList<>();
+        String currentField = "";
+        boolean inField = true;
+
+        while (inField) {
+            Token token = scanner.peek();
+
+            switch (token.kind) {
+                case Comma:
+                    nonEmptyValues.add(currentField);
+                    currentField = "";
+                    scanner.next(); // Consume the comma
+                    break;
+                case EndOfLine:
+                    if (currentField.length() > 0 || !nonEmptyValues.isEmpty()) {
+                        nonEmptyValues.add(currentField);
+                    }
+                    inField = false;
+                    scanner.next(); // Consume the EOL
+                    break;
+                case EndOfInput:
+                    if (currentField.length() > 0 || !nonEmptyValues.isEmpty()) {
+                        nonEmptyValues.add(currentField);
+                    }
+                    inField = false;
+                    break;
+                default:
+                    currentField = field();
+            }
         }
 
-        scanner.next(); // Consume comma
-        return line();
+        return nonEmptyValues;
     }
 
     /**
@@ -91,36 +141,29 @@ public class CSVParser {
      * 
      * @return a list of lists of value strings if successful or null if the input
      *         cannot be parsed as a <CSVFile>
-     */
+     */   
     public List<List<String>> csvFile() {
-        List<List<String>> rows = new ArrayList<>();
-        Token peek;
+        List<List<String>> csvContent = new ArrayList<>();
 
-        while ((peek = scanner.peek()) != null) {
-            if (isEndOfLine(peek)) {
-                scanner.next(); // Consume newline
-                continue;
+        while (true) {
+            // Parse a line
+            List<String> line = line();
+
+            // If line is empty, the CSV file is complete
+            if (line.isEmpty()) {
+                break;
             }
 
-            List<String> row = line();
-            if (!row.isEmpty()) {
-                rows.add(row);
+            // Add the parsed line to the CSV content
+            csvContent.add(line);
+
+            // Check for end of input (if the next token is EndOfInput)
+            Token token = scanner.peek();
+            if (token != null && token.kind.equals(Token.Kinds.EndOfInput)) {
+                break;
             }
-
-            consumeNewlineIfPresent();
         }
 
-        return rows;
-    }
-
-    private boolean isEndOfLine(Token token) {
-        return NEWLINE.equals(token.toString());
-    }
-
-    private void consumeNewlineIfPresent() {
-        Token peek = scanner.peek();
-        if (peek != null && isEndOfLine(peek)) {
-            scanner.next();
-        }
+        return csvContent; // Return the parsed CSV content
     }
 }
