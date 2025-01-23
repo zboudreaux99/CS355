@@ -139,7 +139,6 @@ public class TestParser {
         ArrayList<List<String>> expected = new ArrayList<>();
         expected.add(Arrays.asList(expected1));
         expected.add(Arrays.asList(expected2));
-        System.out.println(v);
         assertThat(v, is(expected));
     }
 
