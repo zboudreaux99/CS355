@@ -24,6 +24,12 @@ public class PipeKit {
         thePipes.add(new HorizontalPipe());
         thePipes.add(new VerticalPipe());
         thePipes.add(new CrossPipe());
+
+        // Add the corner pipes
+        thePipes.add(new LDPipe());
+        thePipes.add(new LUPipe());
+        thePipes.add(new RDPipe());
+        thePipes.add(new RUPipe());
     }
 
     /**
