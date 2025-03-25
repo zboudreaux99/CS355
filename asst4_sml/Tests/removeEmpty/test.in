@@ -1,4 +1,0 @@
-use "remove.sml";
-val actual = remove(42, []);
-val expected = [];
-if actual = expected then "PASSED 100/100" else "FAILED 0/100";

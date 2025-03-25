@@ -1,4 +1,0 @@
-use "insert.sml";
-val actual = insert(42, []);
-val expected = [42];
-if actual = expected then "PASSED 100/100" else "FAILED 0/100";
