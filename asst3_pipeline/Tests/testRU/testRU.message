@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i><span class='expected'>edu</span>.odu.cs.cs355.PipeLine.Pipes.RUPipe: 0=>3 3=>0 --- end of output
+  <i>observed: </i><span class='observed'> </span>--- end of output --- 

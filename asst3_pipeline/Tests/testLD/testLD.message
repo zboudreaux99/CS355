@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i><span class='expected'>edu</span>.odu.cs.cs355.PipeLine.Pipes.LDPipe: 1=>2 2=>1 --- end of output
+  <i>observed: </i><span class='observed'> </span>--- end of output --- 

@@ -1,0 +1,4 @@
+use "insert.sml";
+val actual = insert(42, [10, 20, 30]);
+val expected = [10, 20, 30, 42];
+if actual = expected then "PASSED 100/100" else "FAILED 0/100";
