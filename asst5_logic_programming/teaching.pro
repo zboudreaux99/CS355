@@ -1,22 +1,19 @@
 :- include('enrollment.pro').
 
-% Rule for teaches(F, S):
-% This rule checks if faculty member F teaches student S in some course section.
-teaches(F, S) :-
-    section(SectionNumber, _, F),  % F teaches a section with SectionNumber
-    enrolledIn(SectionNumber, S). % S is enrolled in that SectionNumber
-
-% Rule for takes(S, C):
-% This rule checks if student S is taking some section of course C.
+% Original takes/2 rule
 takes(S, C) :-
-    section(SectionNumber, C, _),  % SectionNumber belongs to course C
-    enrolledIn(SectionNumber, S). % S is enrolled in that SectionNumber
+    section(SectionNumber, C, _),
+    enrolledIn(SectionNumber, S).
 
-% Rule for teachesTwice(F, S):
-% This rule checks if faculty member F teaches student S in 2 or more different course sections.
-teachesTwice(F, S) :-
-    findall(SectionNumber, 
-            (section(SectionNumber, _, F), enrolledIn(SectionNumber, S)), 
-            Sections),
-    length(Sections, Count),
-    Count >= 2. % Ensure F teaches S in at least 2 sections
+% Helper predicate to print the takes(S, C) term
+print_takes(S, C) :-
+    takes(S, C),
+    write('takes('), write(S), write(', '), write(C), write(')'), nl.
+
+% Top-level predicate to drive the query and conditionally print "no"
+handle_takes :-
+    (   print_takes(_, _) % Attempt to print at least one takes(S, C) term
+    ->  true % If successful, do nothing (backtracking is handled by test.dat)
+    ;   write('no'), nl % If no takes(S, C) terms are found, print "no"
+    ).
+

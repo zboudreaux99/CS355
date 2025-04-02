@@ -1,4 +1,6 @@
-OK
+Output line 0:
+  <i>expected: </i>cs450 <span class='expected'>no</span> --- end of output --- 
+  <i>observed: </i>cs450 -<span class='observed'>-</span>- end of output --- 
 on std err:
 /home/zeil/bin/gprolog: 2: PATH: not found
 
