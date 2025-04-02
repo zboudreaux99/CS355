@@ -1,6 +1,6 @@
 Output line 0:
-  <i>expected: </i><span class='expected'>teachesTwice</span>(Doviak, Charlie,Hoilman, Glen) teachesTwice(Doviak, Charlie,Wri
-  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,teachesTwice/2),top_
+  <i>expected: </i>rah) teachesTwice(Schulz, Natalie,Williams, Keith) teachesTwice(<span class='expected'>Woodward</span>, Constance,Malik, Niya) teachesTwice(Woodward, Constance,Potter
+  <i>observed: </i>rah) teachesTwice(Schulz, Natalie,Williams, Keith) teachesTwice(<span class='observed'>staff</span>,Abadam, Faiz) teachesTwice(staff,Abdel, Marvis) teachesTwice(st
 on std err:
 /home/zeil/bin/gprolog: 2: PATH: not found
 

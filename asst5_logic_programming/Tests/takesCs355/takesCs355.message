@@ -1,6 +1,6 @@
 Output line 0:
-  <i>expected: </i> Miller, Crystal Mills, Jinghua Minor, Glenn Mitchell, Jeremiah <span class='expected'>Poe</span>, Angela Porter, Aretha Raines, Corrigan Reasor, Hamid Reyes, Gu
-  <i>observed: </i> Miller, Crystal Mills, Jinghua Minor, Glenn Mitchell, Jeremiah <span class='observed'>no</span> Poe, Angela Porter, Aretha Raines, Corrigan Reasor, Hamid Reyes
+  <i>expected: </i>rine Bannon, Carlin Barnes, Maria Bryant, Natasha Cai, Candaice <span class='expected'>Candies</span>, Iman Corton, Lawanda Dammalapati, Tameishaon Fei, Tawana Gary,
+  <i>observed: </i>rine Bannon, Carlin Barnes, Maria Bryant, Natasha Cai, Candaice <span class='observed'>Corton</span>, Lawanda Dammalapati, Tameishaon Fei, Tawana Gary, Anthony Hoff
 on std err:
 /home/zeil/bin/gprolog: 2: PATH: not found
 

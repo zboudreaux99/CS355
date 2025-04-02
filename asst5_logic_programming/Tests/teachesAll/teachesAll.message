@@ -1,6 +1,6 @@
 Output line 0:
-  <i>expected: </i><span class='expected'>teaches</span>(Beam, Rao,Abadam, Faiz) teaches(Beam, Rao,Abdel, Marvis) teache
-  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,teaches/2),top_level
+  <i>expected: </i>dale, Emory) teaches(Beam, Rao,Craft, Jessie) teaches(Beam, Rao,<span class='expected'>DAmico</span>, Balaje) teaches(Beam, Rao,Dacruz, Jaime) teaches(Beam, Rao,Dem
+  <i>observed: </i>dale, Emory) teaches(Beam, Rao,Craft, Jessie) teaches(Beam, Rao,<span class='observed'>Dacruz</span>, Jaime) teaches(Beam, Rao,DAmico, Balaje) teaches(Beam, Rao,Dem
 on std err:
 /home/zeil/bin/gprolog: 2: PATH: not found
 
