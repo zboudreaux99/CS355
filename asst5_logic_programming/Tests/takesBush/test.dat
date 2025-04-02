@@ -1,1 +1,2 @@
+consult('teaching.pro').
 takes('Bush, Jill', C), write(C), nl,fail.

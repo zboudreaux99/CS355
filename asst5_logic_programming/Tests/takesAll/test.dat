@@ -1,1 +1,2 @@
+consult('teaching.pro').
 takes(S, C), write(takes(S, C)), nl,fail.
