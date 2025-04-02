@@ -1,1 +1,2 @@
+consult('teaching.pro').
 takes(S, 'Not a course'), write(S), nl,fail.

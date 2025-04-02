@@ -1,1 +1,2 @@
+consult('teaching.pro').
 teachesTwice(F, S), write(teachesTwice(F, S)), nl,fail.
