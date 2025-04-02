@@ -2,4 +2,3 @@
 build/
 *.class
 .DS_Store
-**/Tests/
