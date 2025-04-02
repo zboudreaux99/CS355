@@ -1,0 +1,6 @@
+Output line 0:
+  <i>expected: </i><span class='expected'>Adapala</span>, Renate Al-douli, Allen Althouse, Glenn Barton, Gustavo Belur, 
+  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,teaches/2),top_level
+on std err:
+/home/zeil/bin/gprolog: 2: PATH: not found
+
