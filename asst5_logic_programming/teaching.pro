@@ -1,19 +1,19 @@
 :- include('enrollment.pro').
 
-% Original takes/2 rule
-takes(S, C) :-
-    section(SectionNumber, C, _),
-    enrolledIn(SectionNumber, S).
+% 1. teaches(F,S) is true if faculty member F teaches student S in some course
+teaches(Faculty, Student) :-
+    section(Number, _, Faculty),
+    enrolledIn(Number, Student).
 
-% Helper predicate to print the takes(S, C) term
-print_takes(S, C) :-
-    takes(S, C),
-    write('takes('), write(S), write(', '), write(C), write(')'), nl.
+% 2. takes(S,C) is true if student S is taking some section of course C
+takes(Student, Course) :-
+    enrolledIn(Number, Student),
+    section(Number, Course, _).
 
-% Top-level predicate to drive the query and conditionally print "no"
-handle_takes :-
-    (   print_takes(_, _) % Attempt to print at least one takes(S, C) term
-    ->  true % If successful, do nothing (backtracking is handled by test.dat)
-    ;   write('no'), nl % If no takes(S, C) terms are found, print "no"
-    ).
-
+% 3. teachesTwice(F,S) is true if faculty F teaches student S in 2+ different course sections
+teachesTwice(Faculty, Student) :-
+    section(Number1, Course1, Faculty),
+    enrolledIn(Number1, Student),
+    section(Number2, Course2, Faculty),
+    enrolledIn(Number2, Student),
+    Number1 \= Number2.
