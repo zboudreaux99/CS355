@@ -23,8 +23,9 @@ teachesTwice(F, S) :-
 
 % Wrapper to handle "no" output explicitly
 takes(S, C) :-
-    (   section(_, C, _), enrolledIn(_, S)
-    ->  true
-    ;   write('no'), nl,
+    (   findall((S1, C1), takes(S1, C1), Solutions), Solutions = []
+    ->  write('no'), nl,
         fail
+    ;   section(SectionNumber, C, _),
+        enrolledIn(SectionNumber, S)
     ).
