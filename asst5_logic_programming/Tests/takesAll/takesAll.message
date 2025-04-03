@@ -1,6 +1,0 @@
-Output line 0:
-  <i>expected: </i><span class='expected'>no</span> takes(Aadhan, Lujain,cs101D) takes(Abadam, Faiz,cs150) takes(Ab
-  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,takes/2),top_level/0
-on std err:
-/home/zeil/bin/gprolog: 2: PATH: not found
-

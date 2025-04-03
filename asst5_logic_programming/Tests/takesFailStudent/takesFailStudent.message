@@ -1,6 +1,0 @@
-Output line 0:
-  <i>expected: </i><span class='expected'>no</span> --- end of output --- 
-  <i>observed: </i><span class='observed'> </span>--- end of output --- 
-on std err:
-/home/zeil/bin/gprolog: 2: PATH: not found
-

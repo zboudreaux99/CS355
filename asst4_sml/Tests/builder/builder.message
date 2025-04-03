@@ -1,0 +1,14 @@
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+
+BUILD SUCCESSFUL in 6s
+1 actionable task: 1 up-to-date
+
+--- end of output ---
+--- std error ---
+
+--------
+

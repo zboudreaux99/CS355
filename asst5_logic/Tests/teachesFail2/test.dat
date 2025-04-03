@@ -1,0 +1,1 @@
+teaches(F, 'Not a student'), write(found(S)), nl,fail.
