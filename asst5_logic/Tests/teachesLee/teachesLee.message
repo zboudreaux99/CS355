@@ -1,3 +1,3 @@
 Output line 0:
-  <i>expected: </i><span class='expected'>Adapala</span>, Renate Al-douli, Allen Althouse, Glenn Barton, Gustavo Belur, 
-  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,teaches_section/2),t
+  <i>expected: </i>rvicker, Christin Mills, Adrian Mills, Kerry Morrisette, Rhonda <span class='expected'>O</span> Reilly Chunxiang OReilly, Chunxiang Ost, Xiaobing Page, Sumant 
+  <i>observed: </i>rvicker, Christin Mills, Adrian Mills, Kerry Morrisette, Rhonda <span class='observed'>no</span> O Reilly Chunxiang OReilly, Chunxiang Ost, Xiaobing Page, Suman

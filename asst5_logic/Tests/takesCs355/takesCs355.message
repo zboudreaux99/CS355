@@ -1,3 +1,3 @@
 Output line 0:
-  <i>expected: </i><span class='expected'>Allison</span>, Chen-chang Angeles, Eric Balingit, Catherine Bannon, Carlin Ba
-  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,enrolled/2),takes/0)
+  <i>expected: </i> Miller, Crystal Mills, Jinghua Minor, Glenn Mitchell, Jeremiah <span class='expected'>Poe</span>, Angela Porter, Aretha Raines, Corrigan Reasor, Hamid Reyes, Gu
+  <i>observed: </i> Miller, Crystal Mills, Jinghua Minor, Glenn Mitchell, Jeremiah <span class='observed'>no</span> Poe, Angela Porter, Aretha Raines, Corrigan Reasor, Hamid Reyes
