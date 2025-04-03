@@ -3,20 +3,20 @@
 % Rule for teaches(F, S):
 % This rule checks if faculty member F teaches student S in some course section.
 teaches(F, S) :-
-    teaches_section(F, Section),  % F teaches Section
-    enrolled(S, Section).        % S is enrolled in Section
+    section(SectionNumber, _, F),  % F teaches a section with SectionNumber
+    enrolledIn(SectionNumber, S). % S is enrolled in that SectionNumber
 
 % Rule for takes(S, C):
 % This rule checks if student S is taking some section of course C.
 takes(S, C) :-
-    enrolled(S, Section),        % S is enrolled in Section
-    course_section(C, Section).  % Section belongs to course C
+    section(SectionNumber, C, _),  % SectionNumber belongs to course C
+    enrolledIn(SectionNumber, S). % S is enrolled in that SectionNumber
 
 % Rule for teachesTwice(F, S):
 % This rule checks if faculty member F teaches student S in 2 or more different course sections.
 teachesTwice(F, S) :-
-    teaches(F, S),               % F teaches S in at least one section
-    findall(Section, (teaches_section(F, Section), enrolled(S, Section)), Sections),
+    findall(SectionNumber,
+            (section(SectionNumber, _, F), enrolledIn(SectionNumber, S)),
+            Sections),
     length(Sections, Count),
-    Count >= 2.                  % Ensure F teaches S in at least 2 sections
-
+    Count >= 2. % Ensure F teaches S in at least 2 sections
