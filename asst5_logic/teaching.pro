@@ -20,11 +20,12 @@ teachesTwice(F, S) :-
 
 % Redefine takes/2 to handle test queries and sort output
 takes(S, C) :-
-    findall(takes(St, Co), (takes(St, Co)), Solutions),
-    sort(Solutions, SortedSolutions),  % Sort the solutions
-    (   Solutions = []
-    ->  write('no'), nl, fail
-    ;   print_solutions(SortedSolutions), fail
+    (   \+ (section(_, _, _), enrolledIn(_, _))  % Check if ANY solutions exist
+    ->  write('no'), nl, fail  % If no solutions, print "no" and fail
+    ;   findall(takes(St, Co), (takes(St, Co)), Solutions),  % Otherwise, find all solutions
+        sort(Solutions, SortedSolutions),  % Sort the solutions
+        print_solutions(SortedSolutions),  % Print the solutions
+        fail  % Force backtracking
     ).
 
 print_solutions([]).
