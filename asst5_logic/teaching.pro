@@ -20,3 +20,11 @@ teachesTwice(F, S) :-
             Sections),
     length(Sections, Count),
     Count >= 2. % Ensure F teaches S in at least 2 sections
+
+% Wrapper to handle "no" output explicitly
+takes(S, C) :-
+    (   section(_, C, _), enrolledIn(_, S)
+    ->  true
+    ;   write('no'), nl,
+        fail
+    ).
