@@ -20,13 +20,12 @@ teachesTwice(F, S) :-
 
 % Redefine takes/2 to handle test queries and sort output
 takes(S, C) :-
-    findall(takes(St, Co), (section(SectionNumber, Co, _), enrolledIn(SectionNumber, St)), Solutions),
+    findall(takes(St, Co), (takes(St, Co)), Solutions),
     sort(Solutions, SortedSolutions),  % Sort the solutions
     (   Solutions = []
-    ->  write('no'), nl
-    ;   print_solutions(SortedSolutions)
-    ),
-    fail.
+    ->  write('no'), nl, fail
+    ;   print_solutions(SortedSolutions), fail
+    ).
 
 print_solutions([]).
 print_solutions([takes(S, C) | Rest]) :-
