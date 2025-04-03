@@ -1,3 +1,3 @@
 Output line 0:
-  <i>expected: </i>) takes(Al-hajri, Marc,cs250) takes(Al-hajri, Marc,cs270) takes(<span class='expected'>Al</span>-khaled, Jeremiah,cs101D) takes(Al-mhsoon, Abdulkarim,cs101D) ta
-  <i>observed: </i>) takes(Al-hajri, Marc,cs250) takes(Al-hajri, Marc,cs270) takes(<span class='observed'>Alharbi</span>, Dagim,cs101D) takes(Al-khaled, Jeremiah,cs101D) takes(Allen, L
+  <i>expected: </i><span class='expected'>no</span> takes(Aadhan, Lujain,cs101D) takes(Abadam, Faiz,cs150) takes(Ab
+  <i>observed: </i><span class='observed'>takes</span>(Aadhan, Lujain,cs101D) takes(Abadam, Faiz,cs150) takes(Abadam, 
