@@ -7,6 +7,6 @@ teaches(F, S) :- section(Section, _, F), enrolledIn(Section, S).
 takes(S, C) :- enrolledIn(Section, S), section(Section, C, _).
 
 teachesTwice(F, S) :-
-    setof(Section, (enrolledIn(Section, S), section(Section, _, F)), Sections),
+    setof(Section, (section(Section, _, F), enrolledIn(Section, S)), Sections),
     length(Sections, N),
     N >= 2.
