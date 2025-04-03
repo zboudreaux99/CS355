@@ -1,0 +1,6 @@
+Output line 0:
+  <i>expected: </i>rine Bannon, Carlin Barnes, Maria Bryant, Natasha Cai, Candaice <span class='expected'>Candies</span>, Iman Corton, Lawanda Dammalapati, Tameishaon Fei, Tawana Gary,
+  <i>observed: </i>rine Bannon, Carlin Barnes, Maria Bryant, Natasha Cai, Candaice <span class='observed'>Corton</span>, Lawanda Dammalapati, Tameishaon Fei, Tawana Gary, Anthony Hoff
+on std err:
+/home/zeil/bin/gprolog: 2: PATH: not found
+

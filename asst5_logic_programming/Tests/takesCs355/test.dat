@@ -1,0 +1,2 @@
+consult('teaching.pro').
+takes(S, 'cs355'), write(S), nl, fail.

@@ -1,0 +1,2 @@
+consult('teaching.pro').
+teachesTwice(F, 'Not a student'), write(F), nl,fail.

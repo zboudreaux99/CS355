@@ -1,0 +1,6 @@
+Output line 0:
+  <i>expected: </i>rvicker, Christin Mills, Adrian Mills, Kerry Morrisette, Rhonda <span class='expected'>O</span> Reilly Chunxiang OReilly, Chunxiang Ost, Xiaobing Page, Sumant 
+  <i>observed: </i>rvicker, Christin Mills, Adrian Mills, Kerry Morrisette, Rhonda <span class='observed'>no</span> O Reilly Chunxiang OReilly, Chunxiang Ost, Xiaobing Page, Suman
+on std err:
+/home/zeil/bin/gprolog: 2: PATH: not found
+

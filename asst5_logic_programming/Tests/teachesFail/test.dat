@@ -1,0 +1,2 @@
+consult('teaching.pro').
+teaches('Not a teacher', S), write(found(S)), nl,fail.
