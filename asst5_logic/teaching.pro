@@ -21,11 +21,12 @@ teachesTwice(F, S) :-
     length(Sections, Count),
     Count >= 2. % Ensure F teaches S in at least 2 sections
 
-% Wrapper to handle "no" output explicitly
+% Redefine takes/2 to handle test queries
 takes(S, C) :-
-    (   findall((S1, C1), takes(S1, C1), Solutions), Solutions = []
-    ->  write('no'), nl,
+    findall(C, (takes(S, C), section(_, C, _), enrolledIn(_, S)), Courses),
+    (   Courses = []
+    ->  write('no'), nl, fail
+    ;   member(Course, Courses),
+        write(Course), nl,
         fail
-    ;   section(SectionNumber, C, _),
-        enrolledIn(SectionNumber, S)
     ).
