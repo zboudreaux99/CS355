@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i><span class='expected'>Allison</span>, Chen-chang Angeles, Eric Balingit, Catherine Bannon, Carlin Ba
+  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,enrolled/2),takes/0)

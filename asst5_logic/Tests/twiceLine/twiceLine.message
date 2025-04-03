@@ -1,3 +1,3 @@
 Output line 0:
-  <i>expected: </i><span class='expected'>no</span> --- end of output --- 
+  <i>expected: </i><span class='expected'>Hoffmann</span>, Rachael Irintchev, Adel Ishfaq, Abdullah Reasor, Hamid Rollins
   <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,teaches_section/2),t

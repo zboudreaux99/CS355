@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i><span class='expected'>cs</span>450 no --- end of output --- 
+  <i>observed: </i><span class='observed'>uncaught</span> exception: error(existence_error(procedure,enrolled/2),takes/0)
