@@ -1,2 +1,0 @@
-consult('teaching.pro').
-takes('Not a student', C), write(C), nl,fail.

@@ -1,2 +1,0 @@
-consult('teaching.pro').
-teachesTwice(F, 'Querimit, Jeremiah'), write(F), nl,fail.

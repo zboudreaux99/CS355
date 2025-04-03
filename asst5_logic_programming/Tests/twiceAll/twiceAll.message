@@ -1,6 +1,0 @@
-Output line 0:
-  <i>expected: </i>rah) teachesTwice(Schulz, Natalie,Williams, Keith) teachesTwice(<span class='expected'>Woodward</span>, Constance,Malik, Niya) teachesTwice(Woodward, Constance,Potter
-  <i>observed: </i>rah) teachesTwice(Schulz, Natalie,Williams, Keith) teachesTwice(<span class='observed'>staff</span>,Abadam, Faiz) teachesTwice(staff,Abdel, Marvis) teachesTwice(st
-on std err:
-/home/zeil/bin/gprolog: 2: PATH: not found
-
