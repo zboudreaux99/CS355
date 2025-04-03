@@ -23,10 +23,14 @@ teachesTwice(F, S) :-
 
 % Redefine takes/2 to handle test queries
 takes(S, C) :-
-    findall(C, (takes(S, C), section(_, C, _), enrolledIn(_, S)), Courses),
-    (   Courses = []
-    ->  write('no'), nl, fail
-    ;   member(Course, Courses),
-        write(Course), nl,
-        fail
-    ).
+    findall(takes(S, C), (section(SectionNumber, C, _), enrolledIn(SectionNumber, S)), Solutions),
+    (   Solutions = []
+    ->  write('no'), nl
+    ;   print_solutions(Solutions)
+    ),
+    fail.
+
+print_solutions([]).
+print_solutions([takes(S, C) | Rest]) :-
+    write('takes('), write(S), write(', '), write(C), write(')'), nl,
+    print_solutions(Rest).
