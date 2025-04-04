@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i>Copyright (C) 1999-2025 Daniel Diaz <span class='expected'>GNU</span> Prolog 1.5.0 (64 bits) cs311 cs450 --- end of output --- 
+  <i>observed: </i>Copyright (C) 1999-2025 Daniel Diaz <span class='observed'>cs</span>311 cs450 GNU Prolog 1.5.0 (64 bits) --- end of output --- 

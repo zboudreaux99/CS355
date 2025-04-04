@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i>v, Dorothy Dye, Xin Ejike, Agustin Farag, Jeff Finman, Richelle <span class='expected'>GNU</span> Prolog 1.5.0 (64 bits) Garrett, Gustavo Gary, Brett Gibbs, Yoha
+  <i>observed: </i>v, Dorothy Dye, Xin Ejike, Agustin Farag, Jeff Finman, Richelle <span class='observed'>Garrett</span>, Gustavo Gary, Brett Gibbs, Yohannes Gills, Bangfei Givens, Kat

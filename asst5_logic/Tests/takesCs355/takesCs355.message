@@ -1,0 +1,3 @@
+Output line 0:
+  <i>expected: </i>Daniel Diaz Corton, Lawanda Dammalapati, Tameishaon Fei, Tawana <span class='expected'>GNU</span> Prolog 1.5.0 (64 bits) Gary, Anthony Hoffmann, Rachael Irintche
+  <i>observed: </i>Daniel Diaz Corton, Lawanda Dammalapati, Tameishaon Fei, Tawana <span class='observed'>Gary</span>, Anthony GNU Prolog 1.5.0 (64 bits) Hoffmann, Rachael Irintchev
