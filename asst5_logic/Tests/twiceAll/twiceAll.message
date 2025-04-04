@@ -1,3 +1,0 @@
-Output line 0:
-  <i>expected: </i>teachesTwice(<span class='expected'>Doviak</span>, Charlie,Hoilman, Glen) teachesTwice(Doviak, Charlie,Wright, Cr
-  <i>observed: </i>teachesTwice(<span class='observed'>Melrose</span>, Richard,Adapala, Renate) teachesTwice(Melrose, Richard,Atherle

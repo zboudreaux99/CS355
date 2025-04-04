@@ -1,1 +1,0 @@
-teachesTwice('Not a teacher', S), write(S), nl,fail.

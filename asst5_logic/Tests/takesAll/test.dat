@@ -1,1 +1,0 @@
-takes(S, C), write(takes(S, C)), nl,fail.

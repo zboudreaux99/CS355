@@ -1,1 +1,0 @@
-teaches('Lee, Wu', S), write(S), nl,fail.

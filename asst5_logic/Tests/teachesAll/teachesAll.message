@@ -1,3 +1,0 @@
-Output line 0:
-  <i>expected: </i>dale, Emory) teaches(Beam, Rao,Craft, Jessie) teaches(Beam, Rao,<span class='expected'>DAmico</span>, Balaje) teaches(Beam, Rao,Dacruz, Jaime) teaches(Beam, Rao,Dem
-  <i>observed: </i>dale, Emory) teaches(Beam, Rao,Craft, Jessie) teaches(Beam, Rao,<span class='observed'>Dacruz</span>, Jaime) teaches(Beam, Rao,DAmico, Balaje) teaches(Beam, Rao,Dem
