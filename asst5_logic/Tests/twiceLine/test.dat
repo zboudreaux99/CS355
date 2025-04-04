@@ -1,0 +1,1 @@
+teachesTwice('Line, S.', S), write(S), nl,fail.
